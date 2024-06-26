@@ -1,0 +1,8 @@
+node_modules/
+.next/
+dist/
+
+yarn.lock
+*.log
+.env
+.env.*
