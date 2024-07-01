@@ -3,12 +3,15 @@ import styles from '../styles/index.module.css';
 
 function Layout({ children }) {
     return (
-        <div>
-            <div className={styles.apptitle}>
-                <a href='/'>ヘルプアプリ</a>
-            </div>
+        <div className={styles.global_conteiner}>
+            <header className={styles.header}>
+                <div className={styles.apptitle}>
+                    <>ヘルプアプリ</>
+                </div>
+                <a href='/'>ホーム</a>
+            </header>
             {children}
-            <footer>
+            <footer className={styles.footer}>
                 <p>サイトマップ</p>
             </footer>
         </div>

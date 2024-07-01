@@ -10,7 +10,7 @@ export default function Index() {
                         以下から利用開始
                     </li>
                     <li>
-                        <a href="/foruser">利用者の方へ</a>
+                        <a href="/users">利用者の方へ</a>
                     </li>
                     <li>
                         <a href="/forhelper">救護者の方へ</a>

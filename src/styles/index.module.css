@@ -1,20 +1,26 @@
-.apptitle {
-    font-size: 2em;
-    color: #000;
-    padding: 0.5em 0;
-    font-weight: bold;
-    text-align: center;
-    background-color: #f3f3ff;
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.apptitle a {
+.header a {
     text-decoration: none;
     color: #000;
 }
 
-.apptitle:hover a {
+.header:hover a {
     color: #aaa;
     transition: all 0.3s;
+}
+
+.apptitle {
+    font-size: 1.5em;
+    color: #000;
+    padding: 0.5em 0;
+    font-weight: bold;
+    text-align: center;
+    background-color: #fff;
 }
 
 .linkscontainer {
@@ -32,16 +38,32 @@
 
 .linkscontainer a {
     color: #000;
+
 }
 
 .linkscontainer a:hover {
     color: #aaa;
     transition: all 0.3s;
 }
+
 .hucontent {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1em 0;
+}
+
+.footer {
+    background-color: #fff;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.global_conteiner{
+    display: flex;
+    flex-direction: column;
+    padding: 1em 0;
+    margin: auto;
+    max-width: 1000px;
 }
