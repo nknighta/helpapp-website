@@ -1,6 +1,4 @@
-// Import FirebaseAuth and firebase.
 import React from 'react';
-import 'firebase/compat/auth';
 import Layout from "../../components/layout";
 
 // Configure Firebase.
@@ -11,7 +9,7 @@ function SignInScreen() {
             width: '100%',
         }}>
 
-            <a href="/signedIn">
+            <a href="/signin">
                 Google でログインして登録
             </a>
         </div>

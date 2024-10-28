@@ -1,6 +1,8 @@
 node_modules/
 .next/
 dist/
+package-lock.json
+client_secret.json
 
 yarn.lock
 *.log

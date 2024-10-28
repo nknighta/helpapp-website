@@ -11,5 +11,5 @@ export default function handler(req, res) {
                 req.query.locatey !== "" ? req.query.locatey : "",
             ], gettime: h + ":" + m + ":" + s
     });
-    res.status(300).json({ message: 'Hello World' })
+    //res.status(300).json({ message: 'Hello World' })
 }
