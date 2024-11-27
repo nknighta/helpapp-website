@@ -8,8 +8,13 @@ const supabase = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.
 
 export default function Signin() {
     return (
-        <div>
-            <h1>Signin</h1>
+        <div style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center',
+            width: '100%',
+        }}>
             <SignInScreen />
         </div>
     );
@@ -28,7 +33,7 @@ function SignInScreen() {
     const user = useUser();
 
     useEffect(() => {
-      setIsSignedIn(!!user);
+        setIsSignedIn(!!user);
     }, [user]);
 
     const handleSignOut = async () => {
@@ -57,9 +62,63 @@ function SignInScreen() {
     }
     return (
         <div>
-            <h1>My App</h1>
-            <p>Welcome {user.email}! You are now signed-in!</p>
-            <button onClick={handleSignOut}>Sign-out</button>
+            <div style={{
+                textAlign: 'center',
+            }}>
+                <h1>My App</h1>
+                <p>ようこそ</p>
+                <div style={{
+                    padding: '10px',
+                }}>
+                    <span style={{
+                        display: 'block',
+                        width: '100px',
+                        height: '100px',
+                        background: `url(${user.user_metadata.avatar_url})`,
+                        backgroundSize: 'cover',
+                        borderRadius: '50%',
+                        margin: '0 auto',
+                    }}></span>
+                </div>
+                <div style={{
+                    padding: '10px',
+                }}>
+                    <h2>{user.user_metadata.full_name} さん</h2>
+                </div>
+                <div
+                    style={{
+                        padding: '10px',
+                    }}>
+                    <button style={{
+                        padding: '10px',
+                        background: '#3420ff',
+                        color: '#fff',
+                        border: 'none',
+                        cursor: 'pointer',
+                        borderRadius: '50px',
+                        fontSize: '26px',
+
+                    }}
+                        onClick={() => {
+                            window.open('helpapp://');
+                        }}>
+                            まちかどアプリを開く
+                    </button>
+                </div>
+                <button
+                    style={{
+                        padding: '10px',
+                        background: '#f0f0f0',
+                        color: 'blue',
+                        border: 'none',
+                        cursor: 'pointer',
+                        borderRadius: '50px',
+                        fontSize: '20px',
+                    }}
+                    onClick={handleSignOut}>
+                    Sign-out
+                </button>
+            </div>
         </div>
     );
 }

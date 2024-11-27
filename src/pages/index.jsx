@@ -12,12 +12,6 @@ export default function Index() {
                     <li>
                         <a href="/users">利用者の方へ</a>
                     </li>
-                    <li>
-                        <a href="/forhelper">救護者の方へ</a>
-                    </li>
-                    <li>
-                        <a href="#">協力事業者の方へ</a>
-                    </li>
                 </ul>
             </div>
         </>
