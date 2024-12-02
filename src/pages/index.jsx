@@ -1,7 +1,13 @@
 import styles from '../styles/index.module.css';
 import Layout from '../components/layout';
+import { useUser } from '@supabase/supabase-js';
+import { useEffect } from 'react';
 
 export default function Index() {
+    const user = useUser();
+    useEffect(() => {
+        console.log(user);
+    }, [user]);
     return (
         <>
             <div>
@@ -10,7 +16,7 @@ export default function Index() {
                         以下から利用開始
                     </li>
                     <li>
-                        <a href="/users">利用者の方へ</a>
+                        <a href="/signin">利用者登録(無償)</a>
                     </li>
                 </ul>
             </div>
