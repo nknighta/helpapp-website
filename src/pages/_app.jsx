@@ -6,7 +6,7 @@ const supabaseUrl = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.e
 
 function MyApp({ Component, pageProps }) {
   return (
-    <SessionContextProvider supabaseClient={supabaseUrl}>
+    <SessionContextProvider supabaseClient={supabaseUrl}> 
       {Component.getLayout ? Component.getLayout(<Component {...pageProps} />) : <Component {...pageProps} />}
     </SessionContextProvider>
   );
