@@ -1,18 +1,25 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from "@prisma/client";
 
 export default async function handler(req, res) {
-    const prisma = new PrismaClient()
-    const users = await prisma.account.findUnique({
+    const prisma = new PrismaClient();
+    if (req.method === 'POST') {
+      // POSTリクエストの処理
+      const { accountid } = req.body;
+        
+      // データの検証
+      if (!accountid) {
+        return res.status(400).json({ message: 'Name and email are required' });
+      }
+      const data = await prisma.account.findUnique({
         where: {
-            accountid: `${req.body.accountid}` || null
-        }
-    })
-    if (req.method !== 'POST') {
-        res.status(405).json({ message: 'Method Not Allowed' })
-        return
+          accountid: accountid,
+        },
+      }).then((data) => {
+        return data;
+      });
+      res.status(200).json(data);
     } else {
-        res.status(200).json({
-            users: users
-        })
+      // POST以外のメソッドは許可しない
+      res.status(405).json({ message: 'Method Not Allowed' });
     }
-}
+  }
