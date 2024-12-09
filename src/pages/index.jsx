@@ -1,13 +1,8 @@
 import styles from '../styles/index.module.css';
 import Layout from '../components/layout';
-import { useUser } from '@supabase/supabase-js';
-import { useEffect } from 'react';
 
 export default function Index() {
-    const user = useUser();
-    useEffect(() => {
-        console.log(user);
-    }, [user]);
+    
     return (
         <>
             <div>
