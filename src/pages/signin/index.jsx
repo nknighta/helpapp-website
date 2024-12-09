@@ -49,8 +49,15 @@ function SignInScreen() {
     if (!isSignedIn) {
         return (
             <div>
-                <h1>My App</h1>
-                <p>Please sign-in:</p>
+                <div className={{
+                    width: 'auto',
+                    textAlign: 'center',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'center',
+                }}>
+                    <h2>ログインする</h2>
+                </div>
                 <Auth
                     supabaseClient={supabase}
                     providers={['google']}
@@ -102,7 +109,7 @@ function SignInScreen() {
                         onClick={() => {
                             window.open('helpapp://');
                         }}>
-                            まちかどアプリを開く
+                        まちかどアプリを開く
                     </button>
                 </div>
                 <button
