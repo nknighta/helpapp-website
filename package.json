@@ -4,8 +4,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
-    "vercel-build": "prisma init && prisma generate && prisma migrate deploy && next build && next start"
+    "build": "next build"
   },
   "dependencies": {
     "firebase": "^11.1.0",
