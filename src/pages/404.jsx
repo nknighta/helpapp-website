@@ -6,8 +6,7 @@ export default function NOFOUND() {
             <div>
                 <p>ページが見つかりませんでした</p>
                 <Link href="/">
-
-                    <a>トップページに戻る</a>
+                    トップページに戻る
                 </Link>
             </div>
         </>

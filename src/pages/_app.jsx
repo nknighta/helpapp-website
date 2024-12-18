@@ -1,15 +1,10 @@
-import { SessionContextProvider } from '@supabase/auth-helpers-react';
-import { createClient } from '@supabase/supabase-js'
 import "../styles/global.css";
+import AuthProvider from "../lib/AuthContext";
 
-const supabaseUrl = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY);
-
-function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   return (
-    <SessionContextProvider supabaseClient={supabaseUrl}> 
-      {Component.getLayout ? Component.getLayout(<Component {...pageProps} />) : <Component {...pageProps} />}
-    </SessionContextProvider>
+    <AuthProvider>
+      <Component {...pageProps} />
+    </AuthProvider>
   );
 }
-
-export default MyApp;

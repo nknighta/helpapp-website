@@ -1,5 +1,6 @@
 import styles from '../styles/index.module.css';
 import Layout from '../components/layout';
+import Link from 'next/link';
 
 export default function Index() {
     return (
@@ -10,7 +11,7 @@ export default function Index() {
                         以下から利用開始
                     </li>
                     <li>
-                        <a href="/users">利用者の方へ</a>
+                        <Link href="/users">利用者の方へ</Link>
                     </li>
                 </ul>
             </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from "../../components/layout";
+import Link from 'next/link';
 
 // Configure Firebase.
 function SignInScreen() {
@@ -9,9 +10,9 @@ function SignInScreen() {
             width: '100%',
         }}>
 
-            <a href="/signin">
+            <Link href="/signin">
                 Google でログインして登録
-            </a>
+            </Link>
         </div>
     );
 }
