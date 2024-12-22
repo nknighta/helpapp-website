@@ -1,6 +1,6 @@
 import styles from '../../styles/index.module.css'
 import { useAuth } from "../../lib/AuthContext";
-import Layout from "../../components/Layout";
+import Layout from "../../components/layout";
 
 export default function SignInScreen() {
   const { currentUser, login, logout } = useAuth()

@@ -11,7 +11,7 @@ export default function Index() {
                         以下から利用開始
                     </li>
                     <li>
-                        <Link href="/users">利用者の方へ</Link>
+                        <Link href="/signin">利用者の方へ</Link>
                     </li>
                 </ul>
             </div>

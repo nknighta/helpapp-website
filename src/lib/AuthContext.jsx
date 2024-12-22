@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={value}>
-            {isLoading ? <p>Loading...</p> : children}
+            {isLoading ? <p>読み込み中</p> : children}
         </AuthContext.Provider>
     );
 };
