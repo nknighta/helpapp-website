@@ -6,7 +6,7 @@ export default function handler(req, res) {
         if (req.method === 'POST') {
             res.status(200).json({
                 method: 'POST',
-                name: 'John Doe ' + userid
+                name: 'John Doe ' + `${userid}`
             })
         } else {
             res.status(200).json({ name: 'John Doe ' + userid })

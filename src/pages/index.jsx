@@ -12,11 +12,7 @@ export default function Index() {
                         以下から利用開始
                     </li>
                     <li>
-<<<<<<< HEAD
                         <Link href="/signin">利用者の方へ</Link>
-=======
-                        <a href="/signin">利用者登録(無償)</a>
->>>>>>> b135c5b821514521ada20edb974318d92aee787a
                     </li>
                 </ul>
             </div>
