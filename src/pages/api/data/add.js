@@ -7,7 +7,7 @@ export default async function handler(
   req,
   res,
 ) {
-  const COLLECTION_NAME = 'spot';
+  const COLLECTION_NAME = 'user';
   //　初期化する
   if (admin.apps.length === 0) {
     admin.initializeApp({
@@ -17,14 +17,12 @@ export default async function handler(
   const db = getFirestore();
   if (req.method === 'POST') {
     try {
-
       const docRef = db.collection(COLLECTION_NAME).doc();
       const insertData = {
         id: req.body.id,
         name: req.body.name,
         lat: req.body.latitude,
         lng: req.body.longitude,
-        description: req.body.status || "",
       };
       docRef.set(insertData);
       res.status(200).json({ message: 'success', insertData });
