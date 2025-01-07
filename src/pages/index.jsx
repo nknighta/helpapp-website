@@ -9,7 +9,7 @@ export default function Index() {
             <div>
                 <ul className={styles.linkscontainer}>
                     <li>
-                        以下から利用開始
+                        以下から利用開始    
                     </li>
                     <li>
                         <Link href="/signin">利用者の方へ</Link>

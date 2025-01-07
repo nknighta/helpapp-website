@@ -5,6 +5,8 @@ package-lock.json
 pnpm-lock.yaml
 client_secret.json
 
+credential
+credential/firebase-admin.json
 yarn.lock
 *.log
 .env

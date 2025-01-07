@@ -1,6 +1,7 @@
 import { createContext, useState, useEffect, useContext } from "react";
 import { auth } from "./firebase";
 import { GoogleAuthProvider, signInWithCredential, signInWithPopup, signOut } from "firebase/auth";
+import authdisplaystyle from "../styles/authcontenxt.module.css";
 
 const AuthContext = createContext({ currentUser: null });
 
@@ -38,7 +39,11 @@ const AuthProvider = ({ children }) => {
 
     return (
         <AuthContext.Provider value={value}>
-            {isLoading ? <p>読み込み中</p> : children}
+            {isLoading ?
+                <div className={authdisplaystyle.container}>
+                    <div className={authdisplaystyle.loader}></div>
+                </div> : children
+            }
         </AuthContext.Provider>
     );
 };
