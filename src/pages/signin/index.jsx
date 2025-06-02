@@ -1,19 +1,22 @@
 import styles from '../../styles/index.module.css'
 import { useAuth } from "../../lib/AuthContext";
 import Layout from "../../components/layout";
+import { useRouter } from 'next/router';
 
 export default function SignInScreen() {
-  const { currentUser, login, logout } = useAuth()
+  // ログイン処理
+  const { currentUser, login } = useAuth();
+  const router = useRouter();
+  if(currentUser) {
+    router.push('/home'); // Redirect to home if already logged in
+  }
   return (
     <div className={styles.container}>
-      
       <main className={styles.main}>
         {!currentUser && <button onClick={login}>ログイン</button>}
         {currentUser &&
           <div>
-            <h2>{currentUser.displayName} さん、こんにちは！</h2>
-            <p> <span>{currentUser.email}</span> でログイン中</p>
-            <button onClick={logout}>ログアウト</button>
+            よみこみ
           </div>}
       </main>
     </div>
