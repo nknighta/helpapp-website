@@ -7,11 +7,15 @@ import { useEffect, useState } from 'react';
 
 export default function SignInScreen() {
   // ログイン処理
-  const { currentUser, login } = useAuth();
+  const { currentUser } = useAuth();
   const [isStatus, setIsStatus] = useState("");
   const [isAndroid, setIsAndroid] = useState(false);
 
   const router = useRouter();
+  const opensitetype = router.query.send;
+  useEffect(() => {
+    opensitetype === "app" ? router.push("helpapp://settings") : null;
+  }, []);
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
@@ -27,29 +31,10 @@ export default function SignInScreen() {
     if (user) {
       const idToken = await user.getIdToken();
       // このidTokenをFlutterに送る
-      sendTokenToFlutter(idToken);
-      window.location.href = `helpapp://settings?token=${idToken}`;
+      window.location.href = `helpapp://settings`;
     }
   };
-  const handleOpenApp = () => {
-    if (isAndroid) {
-      // アプリがインストールされていない場合のフォールバックも考慮すると良い
-      window.location.href = "helpapp://map";
-
-      // フォールバックの例 (タイムアウトを利用)
-      setTimeout(() => {
-        // もしアプリが開かなかったら（ページが遷移しなかったら）ストアに飛ばすなど
-        // この方法は確実ではないため、UXを考慮して実装する
-        if (!document.hidden) {
-          // document.hiddenでアプリ遷移を検知できる場合がある
-          // window.location.href = "https://play.google.com/store/apps/details?id=com.example.app";
-          console.log("アプリが開かなかったか、インストールされていません。");
-        }
-      }, 2500);
-    } else {
-      setIsStatus("no-android");
-    }
-  };
+  
   const auth = getAuth();
   if (currentUser) {
     return (
@@ -69,8 +54,7 @@ export default function SignInScreen() {
                 </p>
               ) : (
                 <button
-                  onClick={handleOpenApp}
-                  disabled={!isAndroid}
+                  onClick={onAuthStateChanged.bind(null, auth, currentUser)}
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
                 >
                   アプリを開く
@@ -86,7 +70,6 @@ export default function SignInScreen() {
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        {!currentUser && <button onClick={login}>ログイン</button>}
         {currentUser &&
           <div>
             よみこみ
@@ -103,3 +86,4 @@ SignInScreen.getLayout = function getLayout(page) {
     </Layout>
   )
 }
+
