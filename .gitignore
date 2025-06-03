@@ -11,4 +11,8 @@ yarn.lock
 *.log
 .env
 .env.*
+<<<<<<< HEAD
 .vercel
+=======
+certificates
+>>>>>>> supabase2firebase
