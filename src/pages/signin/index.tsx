@@ -1,20 +1,29 @@
-import styles from '../../styles/index.module.css'
+import styles from "../../styles/index.module.css";
 import { useAuth } from "../../lib/AuthContext";
+import firebase from "../../lib/AuthContext";
 import Layout from "../../components/layout";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import { getAuth, signOut } from "firebase/auth";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export default function SignInScreen() {
   // ログイン処理
-  const { currentUser } = useAuth();
+  //const { currentUser } = useAuth();
+  const 
+  { currentUser, login, logout }: any = useAuth();
   const [isStatus, setIsStatus] = useState("");
-  const [isAndroid, setIsAndroid] = useState(false);
 
   const router = useRouter();
   const opensitetype = router.query.send;
   useEffect(() => {
-    opensitetype === "app" ? router.push("helpapp://settings") : null;
+    opensitetype === "app"
+      ? () => {
+          router.push("helpapp://settings");
+          setIsStatus("android");
+        }
+      : () => {
+          setIsStatus("no-android");
+        };
   }, []);
   const handleSignOut = () => {
     signOut(auth)
@@ -34,7 +43,7 @@ export default function SignInScreen() {
       window.location.href = `helpapp://settings`;
     }
   };
-  
+
   const auth = getAuth();
   if (currentUser) {
     return (
@@ -65,25 +74,22 @@ export default function SignInScreen() {
           )}
         </main>
       </div>
-    )
+    );
   }
   return (
     <div className={styles.container}>
       <main className={styles.main}>
-        {currentUser &&
-          <div>
-            よみこみ
-          </div>}
+        <button
+          onClick={login}
+        >
+          ログイン
+        </button>
+        {currentUser && <div>よみこみ</div>}
       </main>
     </div>
-  )
+  );
 }
 
 SignInScreen.getLayout = function getLayout(page) {
-  return (
-    <Layout>
-      {page}
-    </Layout>
-  )
-}
-
+  return <Layout>{page}</Layout>;
+};
