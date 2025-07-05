@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { getAuth, signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 
+
 export default function SignInScreen() {
   // ログイン処理
   //const { currentUser } = useAuth();
@@ -18,7 +19,7 @@ export default function SignInScreen() {
   useEffect(() => {
     opensitetype === "app"
       ? () => {
-          router.push("helpapp://settings");
+          router.push("helpapp://");
           setIsStatus("android");
         }
       : () => {
@@ -40,7 +41,7 @@ export default function SignInScreen() {
     if (user) {
       const idToken = await user.getIdToken();
       // このidTokenをFlutterに送る
-      window.location.href = `helpapp://settings`;
+      window.location.href = `helpapp://`;
     }
   };
 
