@@ -19,7 +19,7 @@ export default function SignInScreen() {
   useEffect(() => {
     opensitetype === "app"
       ? () => {
-          router.push("helpapp://");
+          router.push("helpapp://map");
           setIsStatus("android");
         }
       : () => {
@@ -41,7 +41,7 @@ export default function SignInScreen() {
     if (user) {
       const idToken = await user.getIdToken();
       // このidTokenをFlutterに送る
-      window.location.href = `helpapp://`;
+      window.location.href = `helpapp://map`;
     }
   };
 
